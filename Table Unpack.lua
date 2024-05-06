@@ -1,5 +1,6 @@
 rconsoleclear()
-function serializeTable(a, b, c, d)
+getgenv().serializeTable = function(a, b, c, d)
+    rconsoleclear()
     c = c or false
     d = d or 0
     local e = string.rep("     ", d)
@@ -23,13 +24,6 @@ function serializeTable(a, b, c, d)
     else
         e = e .. tostring(a)
     end
+    rconsoleprint(e)
     return e
 end
-
-rconsoleprint(serializeTable())
-
---[[
-bv require(game:GetService("Players").LocalPlayer.PlayerGui.Main.MainClient.PlayerDataClient).Data
-
-rconsoleprint(serializeTable(require(game:GetService("Players").LocalPlayer.PlayerGui.Main.MainClient.PlayerDataClient).Data))
---]]
